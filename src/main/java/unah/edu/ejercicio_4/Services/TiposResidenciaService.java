@@ -16,7 +16,7 @@ public class TiposResidenciaService {
     TiposResidencia tiposResidencia = new TiposResidencia();
 
     tiposResidencia.setDescripcion(tiposResidenciaDto.getDescripcion());
-    tiposResidencia.setPreciokw(tiposResidenciaDto.getPreciokw());
+    tiposResidencia.setPrecioKw(tiposResidenciaDto.getPrecioKw());
     TiposResidencia saved = this.tiposResidenciaRepository.save(tiposResidencia);
 
     tiposResidenciaDto.setIdTipoResidencia(saved.getIdTipoResidencia());

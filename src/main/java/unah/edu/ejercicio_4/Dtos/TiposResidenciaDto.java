@@ -17,7 +17,7 @@ public class TiposResidenciaDto {
 
   private String descripcion;
 
-  private BigDecimal preciokw;
+  private BigDecimal precioKw;
 
   private Abonado abonado;
 }

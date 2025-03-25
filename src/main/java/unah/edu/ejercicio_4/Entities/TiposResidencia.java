@@ -29,7 +29,7 @@ public class TiposResidencia {
   private String descripcion;
 
   @Column(name = "preciokw") 
-  private BigDecimal preciokw;
+  private BigDecimal precioKw;
 
   @OneToOne(mappedBy = "tiposResidencia", orphanRemoval = true)
   private Abonado abonado;
