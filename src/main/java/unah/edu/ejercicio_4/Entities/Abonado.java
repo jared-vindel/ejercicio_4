@@ -37,5 +37,5 @@ public class Abonado {
 
   @OneToMany(mappedBy = "abonado", orphanRemoval = true)
   private List<Facturacion> facturacion;
-
+  
 }

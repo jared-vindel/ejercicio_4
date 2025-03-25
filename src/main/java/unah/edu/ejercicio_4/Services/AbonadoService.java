@@ -34,4 +34,36 @@ public class AbonadoService {
 
     return abonadoDto;
   }
+
+  public AbonadoDto obtenerAbonado(String dni){
+    if(this.abonadoRepository.existsById(dni)){
+      Abonado abonado = this.abonadoRepository.findById(dni).get();
+      AbonadoDto abonadoDto = new AbonadoDto();
+      abonadoDto.setDni(abonado.getDni());
+      abonadoDto.setNombre(abonado.getNombre());
+      abonadoDto.setApellido(abonado.getApellido());
+      abonadoDto.setTelefono(abonado.getTelefono());
+      return abonadoDto;
+    }
+    return null;
+  }
+
+  public String eliminarAbonado(String dni){
+    if(this.abonadoRepository.existsById(dni) && this.abonadoRepository.findById(dni).get().getTiposResidencia() != null){
+
+      Abonado abonado = this.abonadoRepository.findById(dni).get();
+      abonado.setFacturacion(null);
+      TiposResidencia rs = this.abonadoRepository.findById(dni).get().getTiposResidencia();
+      rs.setAbonado(null);
+      this.tiposResidenciaRepository.save(rs);
+      return "Se eliminó correctamente";
+    } else if(this.abonadoRepository.existsById(dni)){
+      Abonado abonado = this.abonadoRepository.findById(dni).get();
+      abonado.setFacturacion(null);
+      this.abonadoRepository.deleteById(dni);
+      return "jajaja";
+    }
+
+    return "No existe el abonado";
+  }
 }
