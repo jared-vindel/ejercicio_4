@@ -23,6 +23,8 @@ public class AbonadoDto {
 
   private String apellido;
 
+  private int idTipoResidencia;
+
   private TiposResidencia tiposResidencia;
 
   private List<Facturacion> facturacion;

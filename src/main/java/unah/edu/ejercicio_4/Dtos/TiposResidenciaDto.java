@@ -20,4 +20,5 @@ public class TiposResidenciaDto {
   private BigDecimal precioKw;
 
   private Abonado abonado;
+  
 }
