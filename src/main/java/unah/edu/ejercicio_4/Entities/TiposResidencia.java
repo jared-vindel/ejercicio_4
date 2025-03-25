@@ -19,17 +19,18 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tiporesistencia")
+@Table(name = "tiposresidencia")
 public class TiposResidencia {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "idtiporesistencia")
+  @Column(name = "idtiporesidencia")
   private int idTipoResidencia;
 
   private String descripcion;
 
+  @Column(name = "preciokw") 
   private BigDecimal preciokw;
 
-  @OneToOne(mappedBy = "tiposresidencia", orphanRemoval = true)
+  @OneToOne(mappedBy = "tiposResidencia", orphanRemoval = true)
   private Abonado abonado;
 }
